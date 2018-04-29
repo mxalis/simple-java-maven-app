@@ -6,9 +6,19 @@ pipeline {
         echo 'Test Message'
       }
     }
-    stage('') {
+    stage('Compile') {
       steps {
-        bat 'mvn --version'
+        bat 'mvn clean compile'
+      }
+    }
+    stage('Unit Test') {
+      steps {
+        bat 'mvn test'
+      }
+    }
+    stage('Package') {
+      steps {
+        bat 'mvn package'
       }
     }
   }
