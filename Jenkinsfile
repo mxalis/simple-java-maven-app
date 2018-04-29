@@ -20,6 +20,12 @@ pipeline {
     stage('Package') {
       steps {
         bat 'mvn package'
+        archiveArtifacts '**/target/*.jar'
+      }
+    }
+    stage('Quality Check') {
+      steps {
+        waitForQualityGate true
       }
     }
   }
