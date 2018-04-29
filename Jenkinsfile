@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
-        echo 'Test Message'
+        echo 'PATH = ${PATH}'
+        echo 'JAVA_HOME = ${JAVA_HOME}'
       }
     }
     stage('Compile') {
@@ -24,5 +25,6 @@ pipeline {
   }
   environment {
     JAVA_PATH = 'C:\\Program Files\\Java\\jdk1.8.0_92'
+    JAVA_HOME = 'C:\\Program Files\\Java\\jdk1.8.0_92'
   }
 }
